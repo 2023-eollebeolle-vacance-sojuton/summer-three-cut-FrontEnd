@@ -160,8 +160,8 @@ export default function Home() {
           <Webcam
             ref={webcamRef}
             audio={false}
-            width={643}
-            height={537}
+            width={700}
+            height={600}
             screenshotFormat="image/jpeg"
             className="webcam"
             //   videoConstraints={videoConstraints}
