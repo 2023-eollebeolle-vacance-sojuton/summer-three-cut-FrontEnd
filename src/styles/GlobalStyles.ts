@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     * {
       margin: 0;
       padding: 0;
-      font-family: "Black Han Sans";
+      font-family: 'Black Han Sans',sans-serif;
       box-sizing: border-box;
      }
     ${reset}
