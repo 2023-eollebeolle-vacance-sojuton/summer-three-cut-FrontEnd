@@ -7,7 +7,6 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 5rem;
   width: 70%;
   height: 100%;
   position: relative;
