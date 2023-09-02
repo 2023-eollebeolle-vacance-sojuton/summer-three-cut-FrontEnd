@@ -2,6 +2,8 @@ import { getDateText } from "../../../utils/Date/getDateText";
 import * as S from "./style";
 import logo from "../../../assets/common/logo.svg";
 import { useNavigate } from "react-router-dom";
+import { imageArr } from "../../../stores/atoms/image";
+import { useRecoilState } from "recoil";
 
 interface Props {
   isSelectPhotos: boolean;
@@ -15,12 +17,13 @@ export default function ChosenPhotos({
   id,
 }: Props) {
   const navigate = useNavigate();
+  const [selcet, setSelect] = useRecoilState<any[]>(imageArr);
   return (
     <S.ChosenPhotosWrapper id={id}>
       <S.ChosenPhotosBox backgroundColor={backgroundColor}>
         <S.ChosenPhotoContainer>
-          {Array.from({ length: 3 }).map((item, idx) => (
-            <S.ChosenPhoto key={idx} />
+          {selcet.map((item, idx) => (
+            <S.ChosenPhoto key={idx} src={item} />
           ))}
         </S.ChosenPhotoContainer>
         <S.ChosenEtcContainer>

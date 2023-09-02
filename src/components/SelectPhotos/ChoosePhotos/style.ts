@@ -15,8 +15,10 @@ export const ChoosePhotosItemWrapper = styled.div`
   row-gap: 30px;
 `;
 
-export const ChoosePhotoItem = styled.div`
+export const ChoosePhotoItem = styled.img`
   width: 237px;
   height: 100%;
   background-color: #d9d9d9;
+  object-fit: cover;
+  cursor: pointer;
 `;

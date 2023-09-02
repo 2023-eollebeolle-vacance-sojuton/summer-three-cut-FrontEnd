@@ -74,11 +74,7 @@ export default function Home() {
 
   let req: number | undefined;
 
-  const drawimage = async (
-    webcam: HTMLVideoElement,
-    context: CanvasRenderingContext2D,
-    canvas: HTMLCanvasElement
-  ) => {
+  const drawimage = async (webcam: any, context: any, canvas: any) => {
     const originCanvas = document.createElement("canvas");
     originCanvas.width = webcam.videoWidth;
     originCanvas.height = webcam.videoHeight;
@@ -107,7 +103,7 @@ export default function Home() {
     );
   };
 
-  const clickHandler = (backImgName: string | undefined) => {
+  const clickHandler = (backImgName: string) => {
     const webcam = webcamRef.current?.video!;
     const canvas = canvasRef.current!;
     webcam.width = canvas.width = webcam.videoWidth;
@@ -132,15 +128,7 @@ export default function Home() {
 
   function snapshot() {
     if (backImage) {
-      setImage((prev: any) => [
-        ...prev,
-        canvasRef.current?.toDataURL("image/jpeg"),
-      ]);
-    } else {
-      const webcamDataURL = webcamRef.current?.video.toDataURL("image/jpeg");
-      if (webcamDataURL) {
-        console.log(webcamDataURL);
-      }
+      setImage((prev) => [...prev, canvasRef.current?.toDataURL("image/jpeg")]);
     }
   }
 
@@ -160,11 +148,10 @@ export default function Home() {
           <Webcam
             ref={webcamRef}
             audio={false}
-            width={700}
+            width={1280}
             height={600}
             screenshotFormat="image/jpeg"
             className="webcam"
-            //   videoConstraints={videoConstraints}
           />
           <canvas ref={canvasRef} className="canvas" />
         </h.CamWrapper>
@@ -207,8 +194,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h.NextButton onClick={() => snapshot()}>찰칵버튼</h.NextButton>
-        <h.NextButton onClick={() => navigatoe("/result")}>
+        <h.NextButton onClick={snapshot}>찰칵버튼</h.NextButton>
+        <h.NextButton onClick={() => navigatoe("/selectphotos")}>
           다음으로
         </h.NextButton>
       </h.ButtonContainer>

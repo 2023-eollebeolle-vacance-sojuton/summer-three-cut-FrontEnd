@@ -43,10 +43,11 @@ export const ChosenEtcContainer = styled.div`
   flex-direction: column;
 `;
 
-export const ChosenPhoto = styled.div`
+export const ChosenPhoto = styled.img`
   width: 290px;
   height: 180px;
   background-color: red;
+  object-fit: cover;
 `;
 
 export const NowDate = styled.p`
